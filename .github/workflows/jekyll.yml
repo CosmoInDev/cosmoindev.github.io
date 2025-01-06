@@ -27,9 +27,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Npm Build
-        run: npm install && npm run build
-
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -47,6 +44,9 @@ jobs:
         with:
           ruby-version: 3.3
           bundler-cache: true
+
+      - name: Npm Build
+        run: npm install && npm run build
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
