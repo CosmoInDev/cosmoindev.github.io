@@ -7,13 +7,13 @@ tags: [Kotlin]
 render_with_liquid: false
 ---
 
-# Why study Kotlin?
+## Why study Kotlin?
 
 Our team was using Java, but started to get into Kotlin. 
 
 I'm writing this post for myself to understand and look back whenever I need.
 
-# Kotlin - Basic syntax
+## Kotlin - Basic syntax
 
 ### Where it starts?
 
@@ -58,7 +58,7 @@ val message3 = "PI means \${PI}." // "PI means \${PI}."
 
 ### Collections
 
-##### Lists
+#### Lists
 ```kotlin
 // Read-Only List
 val readOnlyAnimals = listOf("dog", "cat", "mouse")
@@ -82,7 +82,7 @@ animals.add("snake")
 animals.remove("dog")
 ```
 
-##### Sets
+#### Sets
 ```kotlin
 // Read-only set
 val readOnlyFruit = setOf("apple", "banana", "cherry", "cherry")
@@ -93,7 +93,7 @@ val fruit: MutableSet<String> = mutableSetOf("apple", "banana", "cherry", "cherr
 println(readOnlyFruit) // [apple, banana, cherry]
 ```
 
-##### Maps
+#### Maps
 ```kotlin
 // Read-only map
 val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
@@ -121,7 +121,7 @@ juiceMenu.values
 
 ### Control Flow
 
-##### If
+#### If
 ```kotlin
 val d: Int
 val check = true
@@ -137,7 +137,7 @@ val b = 2
 println(if (a > b) a else b) // Returns a value: 2
 ```
 
-##### When (Recommended!)
+#### When (Recommended!)
 ```kotlin
 val obj = "Hello"    
 
@@ -193,4 +193,57 @@ do {
     println("Bake a cake")
     cakesBaked++
 } while (cakesBaked < cakesEaten)
+```
+
+### Functions
+
+Point is that you have to specify the type of parameters and return value.
+
+```kotlin
+fun sum(x: Int, y: Int): Int {
+    return x + y
+}
+
+fun printMessageWithPrefix(message: String, prefix: String = "Info") {
+    println("[$prefix] $message")
+    // 'return Unit' or 'return' is optional
+}
+
+fun sum(x: Int, y: Int) = x + y
+
+fun main() {
+    println(sum(1, 2))
+    println(sum(y = 1, x = 2)) // with parameter name, changing order is enabled
+}
+```
+
+#### Lambda expressions
+
+```kotlin
+val upperCaseString = { text: String -> text.uppercase() }
+
+val isNegative = { x -> x < 0 }
+val negatives = listOf(1,2,-3,-4).filter(isNegative)
+
+val doubled = listOf(1,2,-3,-4).map { x -> x * 2 }
+```
+
+```kotlin
+(Type1, Type2) -> Type3 // function types are declined by this form
+{ var1: Type1, var2: Type2 -> Type3 } // lambda function's definition
+```
+
+```kotlin
+fun toSeconds(time: String): (Int) -> Int = when (time) {
+    "hour" -> { value -> value * 60 * 60 }
+    "minute" -> { value -> value * 60 }
+    "second" -> { value -> value }
+    else -> { value -> value }
+}
+```
+
+### Classes
+
+```kotlin
+class Customer
 ```
