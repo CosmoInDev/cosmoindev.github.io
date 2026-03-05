@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: Cosmo # the main title
 
-tagline: Web Developer's Journey # it will display as the subtitle
+tagline: AI Agent Commander # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
